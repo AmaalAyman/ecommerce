@@ -1,0 +1,12 @@
+.clearbtn{
+    border: 1px solid #0aad0a;
+    border-radius: 10px;
+    margin-left: 40%;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.cartEmpty{
+    padding: 60px ;
+    margin-top: 140px;
+}

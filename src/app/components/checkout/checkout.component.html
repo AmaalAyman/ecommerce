@@ -1,0 +1,39 @@
+<section class="container">
+    <div class="container center">
+        <form [formGroup]="checkoutForm" (ngSubmit)="handleForm()" >
+    
+            <div class="mb-3">
+                <label for="details" class="form-label" style="font-weight: bold;">Details:</label>
+                <input formControlName="details"  class="form-control" id="details">
+
+                <div class="alert alert-danger" *ngIf="(checkoutForm.get('details')?.touched && checkoutForm.get('details')?.errors )">
+                    <p *ngIf="checkoutForm.get('details')?.getError('required')"> Details Is Required </p>  
+                    <p *ngIf="checkoutForm.get('details')?.getError('minlength')"> Details minLength is 3 </p>      
+                  </div>
+              </div>
+    
+            <div class="mb-3">
+              <label for="phone" class="form-label" style="font-weight: bold;">Phone:</label>
+              <input formControlName="phone" type="tel" class="form-control" id="phone">
+
+              <div class="alert alert-danger" *ngIf="(checkoutForm.get('phone')?.touched && checkoutForm.get('phone')?.errors)">
+                <p *ngIf="checkoutForm.get('phone')?.getError('required')"> Phone Is Required </p>  
+                <p *ngIf="checkoutForm.get('phone')?.getError('pattern')"> Phone is Invalid </p>       
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="city" class="form-label" style="font-weight: bold;">City:</label>
+                <input formControlName="city" type="text" class="form-control" id="city">
+
+                <div class="alert alert-danger" *ngIf="(checkoutForm.get('city')?.touched && checkoutForm.get('city')?.errors ) ">
+                    <p *ngIf="checkoutForm.get('city')?.getError('required')"> City Is Required </p>        
+                  </div>
+              </div>
+  
+    
+            <button  [disabled]="checkoutForm.invalid" class="btn btn-outline-info" type="submit">Pay Now </button>
+
+          </form>
+        </div>
+    </section>

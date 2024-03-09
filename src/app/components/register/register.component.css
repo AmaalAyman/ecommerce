@@ -1,0 +1,33 @@
+h2{
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.mb-3{
+    margin-left: 50px;
+}
+
+input{
+    width: 900px;
+}
+
+button{
+    float: right;
+    margin-right: 170px;
+}
+
+.btn{
+    padding: 10px 15px;
+    font-weight: bold;
+    margin-right: 140px;
+    margin-top: 5px;
+}
+
+.btn:disabled{
+    background-color: white;
+}
+
+.btn:enabled{
+    background-color: #0aad0a;
+    color: white;
+}

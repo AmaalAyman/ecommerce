@@ -1,0 +1,9 @@
+img{
+    height: 300px;
+    flex:auto;
+}
+
+.card-title{
+    color: green;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

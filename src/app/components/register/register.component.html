@@ -1,0 +1,65 @@
+<section>
+<div class="container center">
+    <form [formGroup]="RegisterForm" (ngSubmit)="handleRegisterForm()">
+        <h2 class="mb-4">Register Now:</h2>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">name:</label>
+          <input formControlName="name" type="text" class="form-control" id="name">
+
+          <div class="alert alert-danger mt-3" style="width: 900px;" *ngIf="(RegisterForm.get('name')?.touched  && RegisterForm.get('name')?.errors)">
+            <p *ngIf="RegisterForm.get('name')?.getError('required')"> Name Is Required </p>  
+            <p *ngIf="RegisterForm.get('name')?.getError('minlength')"> Name Min Length Is: 3 </p>       
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">email:</label>
+            <input formControlName="email" type="email" class="form-control" id="email">
+
+            <div class="alert alert-danger mt-3" style="width: 900px;" *ngIf="(RegisterForm.get('email')?.touched  && RegisterForm.get('email')?.errors)">
+                <p *ngIf="RegisterForm.get('email')?.getError('required')"> Email Is Required </p>  
+                <p *ngIf="RegisterForm.get('email')?.getError('email')"> Email Pattern is inValid </p>       
+              </div>
+          </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">password:</label>
+          <input formControlName="password" type="password" class="form-control" id="password">
+
+          <div class="alert alert-danger mt-3" style="width: 900px;"*ngIf="(RegisterForm.get('password')?.touched  && RegisterForm.get('password')?.errors) ">
+            <p *ngIf="RegisterForm.get('password')?.getError('required')"> Password Is Required </p>  
+            <p *ngIf="RegisterForm.get('password')?.getError('pattern')"> must be <br>
+              * Start with a letter (either uppercase or lowercase).<br>
+              * Be between 6 and 9 characters in total.<br>
+              * Can only contain letters (A-Z or a-z) and numbers (0-9) </p>       
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="rePassword" class="form-label">rePassword:</label>
+            <input formControlName="rePassword" type="password" class="form-control" id="rePassword">
+
+            <div class="alert alert-danger mt-3" style="width: 900px;" *ngIf="(RegisterForm.get('rePassword')?.touched && RegisterForm.get('rePassword')?.errors)">
+                <p *ngIf="RegisterForm.get('rePassword')?.getError('required')"> rePassword Is Required </p>  
+                <p *ngIf="RegisterForm.get('rePassword')?.getError('misMatch')"> rePassword Pattern is inValid </p>       
+              </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">phone:</label>
+            <input formControlName="phone" type="tel" class="form-control" id="phone">
+
+            <div class="alert alert-danger mt-3" style="width: 900px;"*ngIf="(RegisterForm.get('phone')?.touched && RegisterForm.get('phone')?.errors)">
+                <p *ngIf="RegisterForm.get('phone')?.getError('required')"> Phone Is Required </p>  
+                <p *ngIf="RegisterForm.get('phone')?.getError('pattern')"> inValid Phone </p>       
+              </div>
+          </div>
+ 
+        <button [disabled]="RegisterForm.invalid" class="btn" type="submit">Register Now
+          <i class="fa fa-spin fa-spinner" *ngIf="isLoading"></i> 
+        </button>
+     
+      </form>
+    </div>
+</section>

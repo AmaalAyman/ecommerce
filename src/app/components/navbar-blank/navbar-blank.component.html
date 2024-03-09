@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <div class="container fluid">
+        <a class="navbar-brand" routerLink="/"><img src="./assets/images/freshcart-logo.svg"></a>
+        <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse"  id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0 " style="padding-left: 170px;">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="textAction" routerLink="/home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="textAction" routerLink="/cart">Cart</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="textAction" routerLink="/wishlist">Wishlist</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="textAction" routerLink="/products">Products</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="textAction" routerLink="/categories">Categories</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="textAction" routerLink="/brands">Brands</a>
+                </li>
+            </ul>
+
+        </div>
+        <ul class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-center" >
+            <li class="nav-item" role="button">
+               <a class="nav-link position-relative" routerLink="/cart">
+                <i class="fa-solid fa-cart-shopping fa-2x"></i>
+                <span class="badge position-absolute top-0 end-0" style="background-color: #0aad0a;">{{cartNum}}</span>
+            </a>
+            </li>
+            <li class="nav-item d-flex gap-3 me-3" role="button">
+                <span (click)="singOut()">LogOut</span>
+            </li>
+        </ul>
+       
+
+    </div>
+</nav>

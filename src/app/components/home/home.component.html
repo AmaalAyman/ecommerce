@@ -1,0 +1,56 @@
+<section style="margin-top: 190px; margin-left: 300px;" class="w-50 mt-auto">
+  <div class="row g-0 ">
+  <div class="col-md-8">
+    <owl-carousel-o [options]="mainSliderOptions" class="col-md-8">
+      <ng-template carouselSlide><img height="400" class="w-100" src="./assets/images/41nN4nvKaAL._AC_SY200_.jpg"></ng-template>  
+      <ng-template carouselSlide><img height="400" class="w-100" src="./assets/images/61cSNgtEISL._AC_SY200_.jpg"></ng-template>  
+      <ng-template carouselSlide><img height="400" class="w-100" src="./assets/images/XCM_Manual_1396328_4379574_Egypt_EG_BAU_GW_DC_SL_Jewelry_379x304_1X._SY304_CB650636675_.jpg"></ng-template>  
+    </owl-carousel-o>
+  </div>
+  <div class="col-md-4">
+    <img height="200" class="w-100" src="./assets/images/XCM_Manual_1396328_4379575_Egypt_EG_BAU_GW_DC_SL_Bags_Wallets_379x304_1X._SY304_CB650636675_.jpg">
+    <img height="200" class="w-100" src="./assets/images/XCM_Manual_1533480_5305769_379x304_1X._SY304_CB616236518_.jpg">
+  </div>
+  </div>
+</section>
+
+<section style="margin-top: 20px;">
+  <owl-carousel-o [options]="categorySliderOptions">  
+    <ng-container *ngFor="let slide of category">
+      <ng-template carouselSlide [id]="slide._id">
+        <img height="300" [src]="slide.image" [alt]="slide.name" [title]="slide.name">
+        <h5  style="margin-top: 10px;">{{slide.name}}</h5>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</section>
+
+<br>
+<input class="form-control me-2 w-50" style="margin-left: 330px;" type="search" placeholder="Search"
+[(ngModel)]="searchTerm" />
+
+<section class="mt-5">
+  <div class="row g-4 "> 
+    <div  class="col-md-3 " *ngFor="let item of product | search: searchTerm">
+      <div class="product p-2" >
+        <div class="p-2 cursor-pointer" [routerLink]="['/details', item._id]">
+        <img [src]="item.imageCover" [alt]="item.title" class="w-100">
+          <h4 class="h6 text-main">{{item.category.name}}</h4>
+          <h5 class="h6">{{item.title.split(' ').slice(0,2).join(' ')}}</h5>
+          <div class="d-flex align-items-center justify-content-between">
+            <span>{{item.price | currency:'EGP'}} </span>
+        <div>
+          <i class="fas fa-star rating-color "></i>
+          <span class="text-muted">{{item.ratingsAverage}}</span>
+        </div>
+          </div>
+        </div>
+        <div class="d-flex mb-3">
+          <i *ngIf="!wishlistData.includes(item._id)"  class="fa-solid fa-heart ms-auto pt-3" #btnicon (click)="addFav(item._id)" style="font-size:xx-large;"></i>
+          <i *ngIf="wishlistData.includes(item._id)"  class="fa-solid fa-heart ms-auto pt-3" #btnicon (click)="removeFav(item._id)" style="font-size:xx-large; color: red;"></i>
+        </div>
+        <button #btnAdd (click)="addProduct(item._id, btnAdd)" class="btn-main w-100">+Add</button>
+    </div>
+    </div>
+      </div>
+</section>

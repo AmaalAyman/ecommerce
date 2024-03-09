@@ -1,0 +1,31 @@
+<section class="w-75 mx-auto rounded shadow bg-main-light p-5">
+    <div class="d-flex align-items-center justify-content-between">
+        <div>
+            <h1 class="h2" style="font-weight: bolder;">All Orders</h1>
+   </div>
+    </div>
+    <div  *ngFor="let order of userOrder; let i=index">
+                <div class="pt-4">
+                    <h3 class="h5">Order: <span class="text-main">{{i+1}}</span></h3>
+                    <p class="price text-main small  ">Total Price: {{order.totalOrderPrice | currency:'EGP'}}</p>  
+            </div>
+                         
+        <div class="row border-bottom py-5 pt-3"  *ngFor="let item of order.cartItems">
+    <div class="col-md-2">
+        <img class="w-100" [src]="item.product.imageCover" [alt]="item.product.title">    
+    </div>
+
+    <div class="col-md-10 d-flex justify-content-between align-items-center">
+        <div>
+            <h3 class="h5">{{item.product.title}}</h3>
+            <p class="text-main small mb-0">Price: {{item.price}} EGP</p>
+    </div>
+
+
+    </div>
+
+    </div>
+
+</div>
+</section>
+
